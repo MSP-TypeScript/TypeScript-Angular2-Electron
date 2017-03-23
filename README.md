@@ -1,3 +1,4 @@
-# My Awesome Book
+# Angular-Electron
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+이 문서는 Typescript를 기본으로한, Angular2와 Electron을 이용해 Desktop Application을 만드는 것에 대해 다룹니다.
+

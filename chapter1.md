@@ -1,4 +1,6 @@
 # Setup Environment
+> Setup Electon Environment with <http://www.blog.bdauria.com/?p=806> 해당 링크의 문서를 참조하였습니다.
+
 ## Angular2-Electron 개발환경 구축하기
 
 Angular2와 Electron 개발환경을 구축하기 위해서 `Angular-CLI`를 설치해줍니다.
@@ -31,8 +33,8 @@ Electron을 구동하기위해 electron 폴더에 아래와 같은 파일들을 
 
 ```
 Project-Name/electron
-├── package.json
-└── main.js
+├── electron.js
+└── package.json
 ```
 
 
@@ -100,7 +102,7 @@ app.on('activate', () => {
 }
 ```
 
-> Setup Electon Environment with http://www.blog.bdauria.com/?p=806 해당 링크의 문서를 참조하였습니다.
+
 
 
 Angular2와 Electron의 작업 환경을 만들기 위하여 미리 만들어져 있는 Boilerplate Code를 git clone하여 가져옵니다.

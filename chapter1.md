@@ -25,6 +25,8 @@ $ cd Project-Name && mkdir electron
 ```
 
 ## Electron 환경설정 파일 생성
+> <https://electron.atom.io/docs/tutorial/quick-start/> 링크 참조
+
 ```js
 // Project-Name/electron/electron.js
 

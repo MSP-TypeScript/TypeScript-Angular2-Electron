@@ -1,4 +1,16 @@
 # Setup Environment
+## Angular2-Electron 개발환경 구축하기
+
+Angular2와 Electron 개발환경을 구축하기 위해서 `Angular-CLI`를 설치해줍니다.
+
+Angular CLI 는 기본 구조, 컴포넌트 생성, 빌드, 유닛테스트, 개발서버, 배포를 관리 할 수 있도록 도와주는 커멘드라인 인터페이스 입니다.
+
+```Shell
+$ npm install -g @angular/cli
+```
+
+
+
 
 Angular2와 Electron의 작업 환경을 만들기 위하여 미리 만들어져 있는 Boilerplate Code를 git clone하여 가져옵니다.
 

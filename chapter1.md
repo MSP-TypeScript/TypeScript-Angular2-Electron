@@ -19,13 +19,22 @@ $ npm install -g electon
 $ ng new Project-Name
 ```
 
-## Electron 환경설정 폴더 생성
+## Electron 폴더 생성
 ```Shell
 $ cd Project-Name && mkdir electron
 ```
 
-## Electron 환경설정 파일 생성
+## Electron 파일 생성
 > <https://electron.atom.io/docs/tutorial/quick-start/> 링크 참조
+
+Electron을 구동하기위해 electron 폴더에 아래와 같은 파일들을 생성합니다.
+
+```
+Project-Name/electron
+├── package.json
+└── main.js
+```
+
 
 ```js
 // Project-Name/electron/electron.js

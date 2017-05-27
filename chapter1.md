@@ -9,7 +9,87 @@ Angular CLI 는 기본 구조, 컴포넌트 생성, 빌드, 유닛테스트, 개
 $ npm install -g @angular/cli
 ```
 
+## Electron 설치하기
+```Shell
+$ npm install -g electon
+```
 
+## Angular2 프로젝트 생성
+```Shell
+$ ng new Project-Name
+```
+
+## Electron 환경설정 폴더 생성
+```Shell
+$ cd Project-Name && mkdir electron
+```
+
+## Electron 환경설정 파일 생성
+```js
+// Project-Name/electron/electron.js
+
+const {app, BrowserWindow} = require('electron')
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let win
+
+function createWindow() {
+  // Create the browser window.
+  win = new BrowserWindow({width: 800, height: 600})
+
+  // and load the index.html of the app.
+  win.loadURL(`file://${__dirname}/index.html`)
+
+  // Open the DevTools.
+  win.webContents.openDevTools()
+
+  // Emitted when the window is closed.
+  win.on('closed', () => {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    win = null
+  })
+}
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', () => {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (win === null) {
+    createWindow()
+  }
+})
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
+
+```
+
+```json
+// src/electron/package.json
+{
+  "name"    : "angular-electron",
+  "version" : "0.1.0",
+  "main"    : "electron.js"
+}
+```
+
+> Setup Electon Environment with http://www.blog.bdauria.com/?p=806 해당 링크의 문서를 참조하였습니다.
 
 
 Angular2와 Electron의 작업 환경을 만들기 위하여 미리 만들어져 있는 Boilerplate Code를 git clone하여 가져옵니다.

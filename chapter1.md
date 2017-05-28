@@ -104,7 +104,7 @@ app.on('activate', () => {
 ```
 
 ### base 링크 변경
-`src/index.html`의 `<base href="/">`를 `<base href="./">`으로 변경해줍니다.
+`/src/index.html`의 `<base href="/">`를 `<base href="./">`으로 변경해줍니다.
 
 ```html
 <!doctype html>
@@ -125,9 +125,24 @@ app.on('activate', () => {
 ```
 
 ### npm 실행 명령어 설정
+`/package.json`에서 npm으로 `electron`실행 명령어를 만들어 줍시다.
 
+> `/electron/package.json`과 혼동하지 않도록 조심합니다.
 
+```json
+...
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "electron": "cp electron/* dist/ && electron dist/"
+  },
+...
 
+```
 
 Angular2와 Electron의 작업 환경을 만들기 위하여 미리 만들어져 있는 Boilerplate Code를 git clone하여 가져옵니다.
 

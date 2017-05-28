@@ -103,6 +103,27 @@ app.on('activate', () => {
 }
 ```
 
+### base 링크 변경
+`src/index.html`의 `<base href="/">`를 `<base href="./">`으로 변경해줍니다.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Practice05</title>
+  <base href="./">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+</body>
+</html>
+```
+
+
 
 
 

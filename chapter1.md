@@ -112,6 +112,7 @@ app.on('activate', () => {
 <head>
   <meta charset="utf-8">
   <title>Practice05</title>
+  <!-- 이 부분을 변경해줍니다 -->
   <base href="./">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,6 +124,7 @@ app.on('activate', () => {
 </html>
 ```
 
+### npm 실행 명령어 설정
 
 
 

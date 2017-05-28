@@ -144,6 +144,16 @@ app.on('activate', () => {
 
 ```
 
+### 실행하기
+```Bash
+$ ng build --watch
+$ npm run electron
+```
+
+![](/assets/capture/helloworld.png)
+
+
+
 Angular2와 Electron의 작업 환경을 만들기 위하여 미리 만들어져 있는 Boilerplate Code를 git clone하여 가져옵니다.
 
 Angular-Electron URL: [https://github.com/DenisVuyka/ng2-electron](https://github.com/DenisVuyka/ng2-electron)

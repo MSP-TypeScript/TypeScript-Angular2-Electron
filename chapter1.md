@@ -7,26 +7,27 @@ Angular2와 Electron 개발환경을 구축하기 위해서 `Angular-CLI`를 설
 
 Angular CLI 는 기본 구조, 컴포넌트 생성, 빌드, 유닛테스트, 개발서버, 배포를 관리 할 수 있도록 도와주는 커멘드라인 인터페이스 입니다.
 
+### Angular-CLI 설치하기
 ```Shell
 $ npm install -g @angular/cli
 ```
 
-## Electron 설치하기
+### Electron 설치하기
 ```Shell
 $ npm install -g electon
 ```
 
-## Angular2 프로젝트 생성
+### Angular2 프로젝트 생성
 ```Shell
 $ ng new Project-Name
 ```
 
-## Electron 폴더 생성
+### Electron 폴더 생성
 ```Shell
 $ cd Project-Name && mkdir electron
 ```
 
-## Electron 파일 생성
+### Electron 파일 생성
 > <https://electron.atom.io/docs/tutorial/quick-start/> 링크 참조
 
 Electron을 구동하기위해 electron 폴더에 아래와 같은 파일들을 생성합니다.

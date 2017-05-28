@@ -17,6 +17,13 @@ $ npm install -g @angular/cli
 $ npm install -g electon
 ```
 
+### Electron-reload 설치하기
+```Shell
+$ npm install --save Electron-reload
+```
+
+
+
 ### Angular2 프로젝트 생성
 ```Shell
 $ ng new Project-Name
@@ -43,6 +50,9 @@ Project-Name/electron
 // Project-Name/electron/electron.js
 
 const {app, BrowserWindow} = require('electron')
+
+// Electron Reload
+require('electron-reload')(__dirname);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

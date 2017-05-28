@@ -153,6 +153,13 @@ $ npm run electron
 ![](/assets/capture/helloworld.png)
 
 
+### 빠른 설치
+미리 만들어 놓은 Boilerplate 코드를 이용하여 쉽게 개발환경을 설정할 수 있습니다.
+```Bash
+$ git clone https://github.com/MSP-typescript/AngularCLI-Electron-Boilerplate Project-Name
+```
+
+
 
 Angular2와 Electron의 작업 환경을 만들기 위하여 미리 만들어져 있는 Boilerplate Code를 git clone하여 가져옵니다.
 

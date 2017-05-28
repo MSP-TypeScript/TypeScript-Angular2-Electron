@@ -155,6 +155,9 @@ $ npm run electron
 
 ### 빠른 설치
 미리 만들어 놓은 Boilerplate 코드를 이용하여 쉽게 개발환경을 설정할 수 있습니다.
+
+Boilerplate URL: <https://github.com/MSP-typescript/AngularCLI-Electron-Boilerplate>
+
 ```Bash
 $ git clone https://github.com/MSP-typescript/AngularCLI-Electron-Boilerplate Project-Name
 ```

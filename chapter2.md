@@ -21,6 +21,7 @@ $ npm install jquery
 `Semantic-UI` 설치는 간단합니다. 이전의 일반 `html`코딩하던 것 처럼 `index.html`의 `<head>`태그 안에 `semantic.js`와 `semantic.css`파일을 추가해주면 됩니다.
 
 ```html
+<!-- /src/index.html -->
 <head>
   ...
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">

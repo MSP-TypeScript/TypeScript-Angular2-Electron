@@ -30,6 +30,18 @@ $ npm install jquery
 </head>
 ```
 
+이제 한번 Electron을 실행시켜 봅시다.
+
+```Bash
+$ ng build --watch
+$ npm run electron
+```
+
+그리고 우리는 한 에러에 직면하게 됩니다.
+
+![](./assets/capture/jqueryError.png)
+
+
 
 
 ### Electron에서 jQuery를 로드하는 방법

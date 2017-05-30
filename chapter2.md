@@ -53,6 +53,14 @@ $ npm run electron
 
 npm에서 jQuery를 설정했다면 이와 같이 설정하면 됩니다.
 
-```javascript
-window.$ = window.jQuery = require('jquery');
+```html
+<!-- index.html -->
+<head>
+  ...
+  <!-- 이 부분을 추가해 줍니다. -->
+  <script>window.$ = window.jQuery = require('jquery');</script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+  ...
+</head>
 ```

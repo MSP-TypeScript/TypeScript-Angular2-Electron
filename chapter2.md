@@ -15,6 +15,7 @@ $ npm install jquery
 `Semantic-UI`는 UI Library의 카테고리에 속하는 제품입니다. 이 도구는 잘 만들어진 기본 부품(component)를 제공합니다. 이 부품들을 활용해서 빠르게 서비스를 구현할 수 있고, 필요에 따라서는 개조해서 사용할수도 있습니다.
 
 우리는 `Angular2`에 맞춰져 있는 `ngSemantic`을 이용하도록 하겠습니다.
+
 `ngSemantic`Link: <https://ng-semantic.herokuapp.com/#/>
 
 ### Semantic-UI 설치
@@ -41,11 +42,14 @@ $ npm run electron
 
 ![](./assets/capture/jqueryError.png)
 
+`Uncaught ReferenceError: jQuery is not defined`
 
-
+우리는 분명 `jQuery`를 설치하였는데, `jQuery`를 찾지 못했다는 황당한 이유입니다. 여기서 저도 며칠을 삽집을 한지 모르겠습니다.
+원인은 바로 `Electron`의 환경때문이었습니다.
 
 ### Electron에서 jQuery를 로드하는 방법
-기타 다른 라이브러리와 다르게 jQuery의 경우에는 Electron 환경을 크롬과 다른 환경으로 인식, Common JS환경으로 인식하기 때문에 jQuery를 전역변수로 설정하지 않는다 따라서 jQuery를 Electron에서 사용하기 위해서는 별도의 설정이 필요합니다.
+기타 다른 라이브러리와 다르게 jQuery의 경우에는 Electron 환경을 크롬과 다른 환경으로 인식, Common JS환경으로 인식하기 때문에 jQuery를 전역변수로 설정하지 않습니다.
+따라서 jQuery를 Electron에서 사용하기 위해서는 별도의 설정이 필요합니다.
 
 npm에서 jQuery를 설정했다면 이와 같이 설정하면 됩니다.
 

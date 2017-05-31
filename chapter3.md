@@ -58,4 +58,4 @@ export class AppComponent {
 
 ![](./assets/capture/clickButton.png)
 
-정상적으로 `Alert`창이 표시된다면 잘따라오신 것입니다!.
+정상적으로 `Alert`창이 표시된다면 잘따라오신 것입니다!

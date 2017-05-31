@@ -17,3 +17,19 @@
 ![](./assets/capture/makebutton.png)
 
 이렇게 간단히 버튼이 생성이 된 것을 확인할 수 있습니다.
+
+### Binding Click Evnnt
+이제 버튼을 만들었으니 버튼이 `Click` 되었을 때 발생하는 `Click Event`를 만들어보도록 하겠습니다.
+
+일단, 위에서 다뤘던 `html`부터 이어서 수정해보도록 하겠습니다.
+
+```html
+<!-- /src/app/app.component.html -->
+<h1>
+  {{title}}
+</h1>
+<button class="ui button" (click)="clickFunction()">Button</button>
+```
+
+#### (click)="function()"
+`(click)="function()"` 은 `Angular2`의 문법입니다. 해당 `DOM Element`가 클릭되었을 때 실행시킬 함수를 정의하는 것입니다.

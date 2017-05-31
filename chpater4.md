@@ -17,4 +17,4 @@
 ```
 
 #### 첨부 1 electron_icon.png
-![](./assets/img/intro_electron.png)
+![](./assets/img/electron_icon.png)

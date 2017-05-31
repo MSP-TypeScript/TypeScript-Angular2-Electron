@@ -56,6 +56,6 @@ export class AppComponent {
 
 여기까지 오셨다면 다시 실행을 시켜서 버튼을 클릭해 봅시다.
 
-![](./assets/capture/clickButton.png)
+![](./assets/capture/clickButton2.png)
 
 정상적으로 `Alert`창이 표시된다면 잘따라오신 것입니다!

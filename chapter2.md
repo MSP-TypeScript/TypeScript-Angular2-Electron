@@ -8,7 +8,7 @@ Electron으로 개발하기에 앞서 디자인을 도와줄 `Semantic-UI`와 `j
 ### npm jQuery 설치
 
 ```Bash
-$ npm install jquery
+$ npm install --save jquery
 ```
 
 ## Semantic-UI

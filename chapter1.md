@@ -14,7 +14,7 @@ $ npm install -g @angular/cli
 
 ### Electron 설치하기
 ```Shell
-$ npm install -g electon
+$ npm install --save electon
 ```
 
 ### Angular2 프로젝트 생성

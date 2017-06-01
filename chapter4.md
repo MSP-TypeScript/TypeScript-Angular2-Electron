@@ -20,6 +20,7 @@
 
 이제 이미지를 띄워보도록 하겠습니다. 위 이미지를 다운받아 `/src/assets/` 폴더에 `img`라는 폴더를 생성한 뒤 해당 폴더에 저장해 줍니다.
 
+#### File Path
 ```
 Project-Name/src
 ├── app
@@ -31,6 +32,7 @@ Project-Name/src
 
 이 후에 `<img>` 태그를 사용하여 경로를 `./assets/img/electron_icon.png`로 설정해 줍니다.
 
+#### app.component.html
 ```html
 <!-- app.component.html -->
 <div class="ui container">

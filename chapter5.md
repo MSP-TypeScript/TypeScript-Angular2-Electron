@@ -20,6 +20,8 @@
 
 그리고 이제 저 `<video>` 태그에 웹캠 화면을 띄워보도록 하겠습니다.
 
+### Lifecycle ngAfterViewInit
+
 가장 먼저 `ngAfterViewInit()`이라는 `Lifecycle` 훅을 하나 만들어 줍니다.
 `ngAfterViewInit()`를 쓰는 이유는 `View`가 초기화 된 이후에 `DOM Element`에 접근할 수 있기 때문입니다.
 
@@ -49,5 +51,4 @@ export class AppComponent implements AfterViewInit {
     alert('Click!');
   }
 }
-
 ```

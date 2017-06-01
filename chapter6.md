@@ -86,3 +86,27 @@ export class AppComponent implements AfterViewInit {
 ```
 
 ![](./assets/capture/capture.png)
+
+### Notification 만들기
+Electron은 기본적으로 `Notification`을 지원합니다.
+
+만드는 방법은 간단합니다.
+
+```typescript
+new Notification('title', {body: 'message'});
+```
+
+이제 `btn_photo`가 눌릴 경우 `Notification`을 띄워보도록 하겠습니다.
+
+#### app.component.ts
+```typescript
+...
+takePhoto = () => {
+  this.ctx.drawImage(this.video, 0, 0, this.canvas.width, this.canvas.height);
+  new Notification('캡쳐 완료', {body: '캡쳐가 완료되었습니다.'});
+}
+```
+
+이제 `btn_photo`를 누를 경우에 아래와 같은 `Notification`이 뜨는 것을 확인할 수 있습니다.
+
+![](./assets/capture/noti.png)

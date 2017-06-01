@@ -3,6 +3,7 @@
 
 `app.component.html`의 파일을 열어서 다음과 같이 수정합니다.
 
+#### app.component.html
 ```html
 <!-- app.component.html -->
 <div class="ui container">

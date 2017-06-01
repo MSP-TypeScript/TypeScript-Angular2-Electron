@@ -65,7 +65,6 @@ Angular2의 `Interpolation`을 이용해서 멤버 변수를 수정하여 화면
 ```
 여기서 `{{title}}`과 `{{subTitle}}`을 `Interpolation`이라고 합니다. `.ts`파일의 멤버 변수 값이 저 자리에 그대로 출력되게 됩니다.
 
-
 #### app.component.ts
 ```typescript
 // app.component.ts
@@ -79,7 +78,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   // 멤버 변수
-  private title = 'app works!';
+  private title = 'Electron with Angular2';
   private subTitle = 'This app was made for Electron Angular Example';
 
   clickFunction = () => {
@@ -87,3 +86,5 @@ export class AppComponent {
   }
 }
 ```
+
+![](./assets/capture/Interpolation.png)

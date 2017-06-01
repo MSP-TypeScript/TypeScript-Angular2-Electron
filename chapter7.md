@@ -21,23 +21,15 @@ export class AppService {
 
   }
 
-  faceRequest(url: string, img) {
+  postRequest(url: string, apiKey, img) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/octet-stream');
-    headers.append('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
-    return this.http.post(url, img, {headers: headers});
-  }
-
-  emotionRequest(url: string, img) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/octet-stream');
-    headers.append('Ocp-Apim-Subscription-Key', 'YOUR_API_KEY');
+    headers.append('Ocp-Apim-Subscription-Key', apiKey);
     return this.http.post(url, img, {headers: headers});
   }
 
 }
 ```
-> YOUR_API_KEY 부분에 자신이 발급받은 API KEY를 채워 넣어 줍니다.
 
 ### Service 모듈 등록하기
 만든 `Service`모듈을 이제 등록시켜줍니다.
@@ -69,3 +61,71 @@ import { AppService } from './app.service';
 
 export class AppModule { }
 ```
+
+그리고 이제 `<canvas>`에 있는 바이너리 코드를 `Blob`으로 만들어 `Cognitive API`로 전송합니다.
+
+#### app.component.ts
+```typescript
+import { Component, AfterViewInit } from '@angular/core';
+import { AppService } from './app.service';
+
+...
+
+export class AppComponent implements AfterViewInit {
+
+  ...
+  private video;
+  private canvas;
+  private ctx;
+  ...
+
+  constructor(private appService: AppService) {}
+
+  ngAfterViewInit() {
+    ...
+  }
+
+  // Blob으로 만들어 주기 위한 함수
+  dataURLtoBlob(dataurl) {
+     const arr = dataurl.split(','), mime = arr[ 0 ].match(/:(.*?);/)[ 1 ];
+     const bstr = atob(arr[ 1 ]);
+     let n = bstr.length;
+     const u8arr = new Uint8Array(n);
+     while (n--) {
+       u8arr[ n ] = bstr.charCodeAt(n);
+     }
+     return new Blob([ u8arr ], { type: 'application/octet-stream' });
+  }
+
+  takePhoto = () => {
+    this.ctx.drawImage(this.video, 0, 0, this.canvas.width, this.canvas.height);
+    new Notification('캡쳐 완료', {body: '캡쳐가 완료되었습니다.'});
+
+    // canvas의 바이너리를 blob으로 변환
+    const imgData = this.canvas.toDataURL('image/jpeg', 1.0);
+    const blob = this.dataURLtoBlob(imgData);
+
+    const faceURL = 'https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Description,Faces&language=en';
+    const emotionURL = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize';
+
+    const faceKey = 'YOUR_API_KEY';
+    const emotionKey = 'YOUR_API_KEY';
+
+    this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
+        const resultJson = JSON.parse(data['_body']);
+        console.log(resultJson);
+    })
+
+    this.appService.postRequest(emotionURL, emotionKey, blob).subscribe((data) => {
+        const resultJson = JSON.parse(data['_body']);
+        console.log(resultJson);
+    })
+  }
+}
+```
+
+지금과는 다르게 약간 난이도가 있는 부분이었습니다.
+
+여기까지 잘 따라 오셨다면 아래와 같은 결과 값이 나오게 됩니다.
+
+![](./assets/capture/result_json.png)

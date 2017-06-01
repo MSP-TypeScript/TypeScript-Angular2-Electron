@@ -1,4 +1,4 @@
-# WebCAM
+# Show WebCAM stream in Electron
 이번에는 `HTML5`에서 지원하는 `getUserMedia`를 이용해서 화면상에 WebCAM을 띄워보도록 하겠습니다.
 
 웹캠으로 찍히는 화면이 App 내에서 표시될 `<video>`태그를 하나 만들어 줍니다.

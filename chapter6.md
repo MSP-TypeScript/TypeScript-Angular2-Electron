@@ -15,12 +15,25 @@
   </h2>
   <video id="camera" class="ui fluid" autoplay> </video>
   <!-- 이 부분을 추가해 줍니다. -->
-  <div>
-    <button id="btn_photo" class="ui button" (click)="takePhoto()">
-      <i class="icon photo"></i>
-      Take a Photo!
-    </button>
-  </div>
+  <button id="btn_photo" class="ui fluid button" (click)="takePhoto()">
+    <i class="icon photo"></i>
+    Take a Photo!
+  </button>
   <canvas id="myCanvas"></canvas>
 </div>
 ```
+
+#### app.component.css
+```css
+#camera{
+  transform: scaleX(-1);
+}
+
+.fluid {
+  width: 100%;
+}
+```
+
+이와 같이 잘 따라오셨다면 아래와 같은 화면이 나오게됩니다.
+
+![](./assets/capture/makeCaptureBtn.png)

@@ -29,6 +29,8 @@ Project-Name/src
 └── environment
 ```
 
+이 후에 `<img>` 태그를 사용하여 경로를 `./assets/img/electron_icon.png`로 설정해 줍니다.
+
 ```html
 <!-- app.component.html -->
 <div class="ui container">
@@ -41,3 +43,7 @@ Project-Name/src
   </h2>
 </div>
 ```
+
+여기까지 오셨으면 다음과 화면이 완성됩니다.
+
+![](./assets/capture/addImg.png)

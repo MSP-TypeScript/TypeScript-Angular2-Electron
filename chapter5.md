@@ -92,3 +92,5 @@ ngAfterViewInit() {
   transform: scaleX(-1);
 }
 ```
+
+![](./assets/capture/webcam_reverse.png)

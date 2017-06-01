@@ -7,6 +7,32 @@
 <!-- app.component.html -->
 <div class="ui container">
   <h2 class="ui center aligned icon header">
+    <div class="content">
+      {{title}}
+      <div class="sub header">{{subTitle}}</div>
+    </div>
+  </h2>
+</div>
+```
+### Image 표시하기
+#### 첨부 1 electron_icon.png
+![](./assets/img/electron_icon.png)
+
+이제 이미지를 띄워보도록 하겠습니다. 위 이미지를 다운받아 `/src/assets/` 폴더에 `img`라는 폴더를 생성한 뒤 해당 폴더에 저장해 줍니다.
+
+```
+Project-Name/src
+├── app
+└── assets
+    └── img
+        └── electron_icon.png
+└── environment
+```
+
+```html
+<!-- app.component.html -->
+<div class="ui container">
+  <h2 class="ui center aligned icon header">
     <img class="ui image" src="./assets/img/electron_icon.png">
     <div class="content">
       {{title}}
@@ -15,6 +41,3 @@
   </h2>
 </div>
 ```
-
-#### 첨부 1 electron_icon.png
-![](./assets/img/electron_icon.png)

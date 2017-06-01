@@ -52,7 +52,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 // Appservice 를 import 한 뒤
 import { AppService } from './app.service';
-...
 
 @NgModule({
   declarations: [

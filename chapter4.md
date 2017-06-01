@@ -51,8 +51,19 @@ Project-Name/src
 ### Data Interpolation :: 데이터 보간
 Angular2의 `Interpolation`을 이용해서 멤버 변수를 수정하여 화면에 나오는 문구를 수정해 보도록 하겠습니다.
 
-`app.component.ts`
+#### app.component.html
+```html
+...
+<div class="content">
+  {{title}}
+  <div class="sub header">{{subTitle}}</div>
+</div>
+...
+```
+여기서 `{{title}}`과 `{{subTitle}}`을 `Interpolation`이라고 합니다. `.ts`파일의 멤버 변수 값이 저 자리에 그대로 출력되게 됩니다.
 
+
+#### app.component.ts
 ```typescript
 // app.component.ts
 import { Component } from '@angular/core';

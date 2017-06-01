@@ -42,6 +42,8 @@ export class AppComponent implements AfterViewInit {
   private title = 'Electron with Angular2';
   private subTitle = 'This app was made for Electron Angular Example';
 
+  private video;
+
   // ngAfterViewInit()를 선언합니다.
   ngAfterViewInit() {
 
@@ -60,12 +62,14 @@ export class AppComponent implements AfterViewInit {
 ```typescript
 ...
 ngAfterViewInit() {
-  navigator.getUserMedia({ video: true, audio: false },
+  navigator.getUserMedia({video: true, audio: false},
     (stream) => {
       this.video = document.getElementById('camera');
       this.video.srcObject = stream;
-    },
-    function (error) { console.log('error' + error); }
+     },
+    (error) => {
+      console.log('Error' + error);
+    }
   );
 }
 ...

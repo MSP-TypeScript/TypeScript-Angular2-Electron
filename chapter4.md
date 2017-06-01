@@ -76,7 +76,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   // 멤버 변수
-  title = 'app works!';
+  private title = 'app works!';
   private subTitle = 'This app was made for Electron Angular Example';
 
   clickFunction = () => {

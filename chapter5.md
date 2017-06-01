@@ -52,3 +52,21 @@ export class AppComponent implements AfterViewInit {
   }
 }
 ```
+
+### getUserMedia
+`Lifecycle` 준비가 되었다면 이제 웹캠으로 부터 정보를 받아와봅시다.
+
+#### app.component.ts
+```typescript
+...
+ngAfterViewInit() {
+  navigator.getUserMedia({ video: true, audio: false },
+    (stream) => {
+      this.video = document.getElementById('camera');
+      this.video.srcObject = stream;
+    },
+    function (error) { console.log('error' + error); }
+  );
+}
+...
+```

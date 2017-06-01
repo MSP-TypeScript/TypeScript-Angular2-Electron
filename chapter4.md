@@ -47,3 +47,29 @@ Project-Name/src
 여기까지 오셨으면 다음과 화면이 완성됩니다.
 
 ![](./assets/capture/addImg.png)
+
+### Data Interpolation :: 데이터 보간
+Angular2의 `Interpolation`을 이용해서 멤버 변수를 수정하여 화면에 나오는 문구를 수정해 보도록 하겠습니다.
+
+`app.component.ts`
+
+```typescript
+// app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent {
+  // 멤버 변수
+  title = 'app works!';
+  private subTitle = 'This app was made for Electron Angular Example';
+
+  clickFunction = () => {
+    alert('Click!');
+  }
+}
+```

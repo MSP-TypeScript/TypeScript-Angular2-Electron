@@ -208,3 +208,55 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
 ```
 
 ![](./assets/capture/description.png)
+
+
+### ngFor을 이용한 여러개의 정보 표시하기
+이번에는 `ngFor`을 사용해보도록 하겠습니다.
+
+지금은 하나의 얼굴을 인식하기 때문에 한 명의 정보만 나오지만, 기본적으로 `Cognitive API`는 여러명의 얼굴도 인식할 수 있습니다.
+여러명의 얼굴을 인식하게 될 경우에는 `faces`에 객체가 여러개 리턴되기 때문에 이를 다 표시해주기 위해서는 반복문을 사용해야합니다.
+
+`ngFor`을 이용하는 방법은 간단합니다.
+
+일단 `faces`라는 멤버 변수를 하나 생성합니다.
+
+#### app.component.ts
+```typescript
+export class AppComponent implements AfterViewInit {
+  ...
+  // faces라는 새로운 멤버 변수를 선언
+  private faces;
+
+  takePhoto = () => {
+    ...
+    this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {\
+      const resultJson = JSON.parse(data['_body']);
+      ...
+      this.faces = resultJson['faces'];
+      ...
+    }
+  }
+}
+...
+```
+
+그리고 템플릿에서 `ngFor`을 사용합니다.
+
+```html
+<div class="ui container">
+  ...
+  <h3 class="ui center aligned header">{{result}}</h3>
+  <div class="ui fluid card" *ngFor="let face of faces">
+    <div class="content">
+      <div class="header">{{face['gender']}}</div>
+      <div class="meta">{{face['age']}}</div>
+    </div>
+  </div>
+</div>
+```
+
+자, 그럼 아래와 같이 얼굴이 인식된 정보가 하단에 표시되게 됩니다.
+![](./assets/capture/resultapp.png)
+
+여기까지 `Electron`과 `Angular2` 그리고 `Typescript`를 이용하여 얼굴인식 앱을 만들어 봤습니다.
+모두 봐주셔서 감사합니다.

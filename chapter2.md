@@ -68,3 +68,6 @@ npm에서 jQuery를 설정했다면 이와 같이 설정하면 됩니다.
 ![](./assets/capture/jquerySuccess.png)
 
 이제 정상적으로 `Semantic-UI`와 `jQuery`가 설치된 것을 확인할 수 있습니다.
+
+### [이전 게시물 :: Setup Environment](chapter1.md)
+### [다음 게시물 :: Start Electron](chapter3.md)

@@ -66,7 +66,7 @@ export class AppModule { }
 
 #### app.component.ts
 ```typescript
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { AppService } from './app.service';
 
 ...
@@ -74,8 +74,8 @@ import { AppService } from './app.service';
 export class AppComponent implements AfterViewInit {
 
   ...
-  private video;
-  private canvas;
+  @ViewChild('camera') video;
+  @ViewChild('myCanvas') canvas;
   private ctx;
   ...
 
@@ -86,23 +86,23 @@ export class AppComponent implements AfterViewInit {
   }
 
   // Blob으로 만들어 주기 위한 함수
-  dataURLtoBlob(dataurl) {
-     const arr = dataurl.split(','), mime = arr[ 0 ].match(/:(.*?);/)[ 1 ];
-     const bstr = atob(arr[ 1 ]);
-     let n = bstr.length;
-     const u8arr = new Uint8Array(n);
-     while (n--) {
-       u8arr[ n ] = bstr.charCodeAt(n);
-     }
-     return new Blob([ u8arr ], { type: 'application/octet-stream' });
+  dataURLtoBlob = (dataurl) => {
+    const arr = dataurl.split(','), mime = arr[ 0 ].match(/:(.*?);/)[ 1 ];
+    const bstr = atob(arr[ 1 ]);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[ n ] = bstr.charCodeAt(n);
+    }
+    return new Blob([ u8arr ], { type: 'application/octet-stream' });
   }
 
   takePhoto = () => {
-    this.ctx.drawImage(this.video, 0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.drawImage(_video, 0, 0, _canvas.width, _canvas.height);
     new Notification('캡쳐 완료', {body: '캡쳐가 완료되었습니다.'});
 
     // canvas의 바이너리를 blob으로 변환
-    const imgData = this.canvas.toDataURL('image/jpeg', 1.0);
+    const imgData = _canvas.toDataURL('image/jpeg', 1.0);
     const blob = this.dataURLtoBlob(imgData);
 
     const faceURL = 'https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Description,Faces&language=en';
@@ -189,7 +189,7 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
 ```html
 <div class="ui container">
   ...
-  <canvas id="myCanvas" class="ui fluid" width="640" height="480"></canvas>
+  <canvas #myCanvas class="ui fluid" width="640" height="480"></canvas>
   <!-- description을 표시할 h3 태그 -->
   <h3 class="ui center aligned header">{{description}}</h3>
 </div>
@@ -197,6 +197,7 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
 그 다음으로는 `description`을 멤버 변수로 선언해줍니다.
 
 #### app.component.ts
+
 ```typescript
 private description;
 ...

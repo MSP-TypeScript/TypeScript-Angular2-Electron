@@ -16,13 +16,13 @@
       <div class="sub header">{{subTitle}}</div>
     </div>
   </h2>
-  <video id="camera" class="ui fluid" autoplay> </video>
+  <video #camera class="ui fluid" autoplay> </video>
   <!-- 이 부분을 추가해 줍니다. -->
   <button id="btn_photo" class="ui fluid button" (click)="takePhoto()">
     <i class="icon photo"></i>
     Take a Photo!
   </button>
-  <canvas id="myCanvas" class="ui fluid" width="640" height="480"></canvas>
+  <canvas #myCanvas class="ui fluid" width="640" height="480"></canvas>
 </div>
 ```
 
@@ -54,13 +54,15 @@ export class AppComponent implements AfterViewInit {
   private title = 'Electron with Angular2';
   private subTitle = 'This app was made for Electron Angular Example';
 
-  private video;
-  private canvas;
+  @ViewChild('camera') video;
+  @ViewChild('myCanvas') canvas;
   private ctx;
 
   ngAfterViewInit() {
+    const _video = this.video.nativeElement;
+
     // canvas 초기화
-    this.canvas = document.getElementById('myCanvas');
+    const _canvas = this.canvas.nativeElement;
     // ctx 초기화
     this.ctx = this.canvas.getContext('2d');
 
@@ -68,19 +70,23 @@ export class AppComponent implements AfterViewInit {
     this.ctx.translate(this.canvas.width, 0);
     this.ctx.scale(-1, 1);
 
-    navigator.getUserMedia({ video: true, audio: false },
+    navigator.getUserMedia({video: true, audio: false},
       (stream) => {
-        this.video = document.getElementById('camera');
-        this.video.srcObject = stream;
-      },
-      function (error) { console.log('error' + error); }
+        _video.srcObject = stream;
+       },
+      (error) => {
+        console.log('Error' + error);
+      }
     );
   }
 
   // btn_photo에 바인딩할 takePhoto() 함수 정의하기
   takePhoto = () => {
+    const _video = this.video.nativeElement;
+    const _canvas = this.canvas.nativeElement;
+
     // 캡쳐된 화면 그리기
-    this.ctx.drawImage(this.video, 0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.drawImage(_video, 0, 0, _canvas.width, _canvas.height);
   }
 ...
 ```
@@ -102,7 +108,10 @@ new Notification('title', {body: 'message'});
 ```typescript
 ...
 takePhoto = () => {
-  this.ctx.drawImage(this.video, 0, 0, this.canvas.width, this.canvas.height);
+  const _video = this.video.nativeElement;
+  const _canvas = this.canvas.nativeElement;
+  
+  this.ctx.drawImage(_video, 0, 0, _canvas.width, _canvas.height);
   new Notification('캡쳐 완료', {body: '캡쳐가 완료되었습니다.'});
 }
 ```

@@ -180,3 +180,30 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
 ![](./assets/capture/detectFace.png)
 
 화면에 얼굴 인식 사각형까지 그리는 것을 완료하였습니다.
+
+### Cognitive 결과 값을 화면에 출력하기
+이제 나머지 결과 값을 화면에 출력해보도록 하겠습니다.
+
+가장 먼저 `description`을 표시할 `<h3>`태그를 만들어 줍니다.
+#### app.component.html
+```html
+<div class="ui container">
+  ...
+  <canvas id="myCanvas" class="ui fluid" width="640" height="480"></canvas>
+  <!-- description을 표시할 h3 태그 -->
+  <h3 class="ui center aligned header">{{description}}</h3>
+</div>
+```
+그 다음으로는 `description`을 멤버 변수로 선언해줍니다.
+
+#### app.component.ts
+```typescript
+private description;
+...
+this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
+  ...
+  this.description = resultJson['description']['captions'][0]['text'];
+}
+```
+
+![](./assets/capture/description.png)

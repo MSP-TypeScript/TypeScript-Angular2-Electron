@@ -160,8 +160,18 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
       this.ctx.strokeRect(640 - parseInt(faceRect[ 'left' ], 0) - parseInt(faceRect['width'], 0) , faceRect[ 'top' ],
           faceRect[ 'width' ], faceRect[ 'height' ]);
     }
+
+    const n = resultJson['faces'].length;
+    if(n > 0){
+      new Notification('얼굴 인식 완료', {body: n + '명의 얼굴을 표시하였습니다.'});
+    }
+    else {
+      new Notification('얼굴 인식 실패', {body: '얼굴을 찾지 못하였습니다.'});
+    }
 })
 ...
 ```
 
 > 640 - parseInt(faceRect[ 'left' ], 0) - parseInt(faceRect['width'], 0) 부터 시작하는 이유는 좌우가 반전되어있기 때문입니다.
+
+![](./assets/capture/detectFace.png)

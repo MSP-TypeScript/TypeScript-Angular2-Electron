@@ -14,7 +14,7 @@
     </div>
   </h2>
   <!-- 이 부분을 추가해 줍니다. -->
-  <video id="camera" class="ui fluid" autoplay> </video>
+  <video #camera class="ui fluid" autoplay> </video>
 </div>
 ```
 
@@ -30,7 +30,8 @@
 #### app.component.ts
 ```typescript
 // ngAfterViewInit()을 쓰기 위해서 AfterViewInit를 import 해줍니다.
-import { Component, AfterViewInit } from '@angular/core';
+// 그리고 HTML DOM Element를 가져오기 위해서 ViewChild도 import 해줍니다.
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +43,7 @@ export class AppComponent implements AfterViewInit {
   private title = 'Electron with Angular2';
   private subTitle = 'This app was made for Electron Angular Example';
 
-  private video;
+  @ViewChild('camera') video;
 
   // ngAfterViewInit()를 선언합니다.
   ngAfterViewInit() {
@@ -62,10 +63,11 @@ export class AppComponent implements AfterViewInit {
 ```typescript
 ...
 ngAfterViewInit() {
+  // video 초기화
+  const _video = this.video.nativeElement;
   navigator.getUserMedia({video: true, audio: false},
     (stream) => {
-      this.video = document.getElementById('camera');
-      this.video.srcObject = stream;
+      _video.srcObject = stream;
      },
     (error) => {
       console.log('Error' + error);
@@ -88,7 +90,7 @@ ngAfterViewInit() {
 
 #### app.component.css
 ```css
-#camera{
+video{
   transform: scaleX(-1);
 }
 ```

@@ -261,4 +261,4 @@ export class AppComponent implements AfterViewInit {
 여기까지 `Electron`과 `Angular2` 그리고 `Typescript`를 이용하여 얼굴인식 앱을 만들어 봤습니다.
 모두 봐주셔서 감사합니다.
 
-### [이전 게시물](chapter6.md)
+### [이전 게시물 :: Capture WebCAM stream](chapter6.md)

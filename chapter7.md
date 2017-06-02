@@ -129,3 +129,39 @@ export class AppComponent implements AfterViewInit {
 여기까지 잘 따라 오셨다면 아래와 같은 결과 값이 나오게 됩니다.
 
 ![](./assets/capture/result_json.png)
+
+### 얼굴 부분 강조하기
+이번에는 얼굴 영역을 붉은 색 테두리로 표시하는 방법을 알아보도록 하겠습니다.
+
+`Cognitive API`를 이용해서 얻은 값의 구조를 들여다 보면, 아래와 같습니다.
+
+```
+Object
+├── description
+├── faces
+    └── face
+        ├── age
+        ├── faceRectangle
+        └── gender
+└── metadata
+```
+
+여기서 우리가 써야할 값은 `faceRectangle` 입니다.
+
+```typescript
+...
+this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
+    const resultJson = JSON.parse(data['_body']);
+    console.log(resultJson);
+
+    for (const face of resultJson['faces']) {
+      const faceRect = face['faceRectangle'];
+      this.ctx.strokeStyle = '#FF0000';
+      this.ctx.strokeRect(640 - parseInt(faceRect[ 'left' ], 0) - parseInt(faceRect['width'], 0) , faceRect[ 'top' ],
+          faceRect[ 'width' ], faceRect[ 'height' ]);
+    }
+})
+...
+```
+
+> 640 - parseInt(faceRect[ 'left' ], 0) - parseInt(faceRect['width'], 0) 부터 시작하는 이유는 좌우가 반전되어있기 때문입니다.

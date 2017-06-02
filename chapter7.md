@@ -1,4 +1,4 @@
-# Cognitive with HTTP
+# Detect Face with Cognitive API
 
 이번 문서에서는 `Angular2`에서 `HTTP` 통신을 이용하여 `Cognitive API`를 사용하는 방법을 소개하도록 하겠습니다.
 
@@ -156,11 +156,14 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
 
     for (const face of resultJson['faces']) {
       const faceRect = face['faceRectangle'];
+      // 붉은 색 테두리로 표시
       this.ctx.strokeStyle = '#FF0000';
+      // 사각형 좌표를 입력하여 테두리 그리기
       this.ctx.strokeRect(640 - parseInt(faceRect[ 'left' ], 0) - parseInt(faceRect['width'], 0) , faceRect[ 'top' ],
           faceRect[ 'width' ], faceRect[ 'height' ]);
     }
 
+    // 얼굴 인식 개수에 따른 Notification 메시지 처리
     const n = resultJson['faces'].length;
     if(n > 0){
       new Notification('얼굴 인식 완료', {body: n + '명의 얼굴을 표시하였습니다.'});
@@ -175,3 +178,5 @@ this.appService.postRequest(faceURL, faceKey, blob).subscribe((data) => {
 > 640 - parseInt(faceRect[ 'left' ], 0) - parseInt(faceRect['width'], 0) 부터 시작하는 이유는 좌우가 반전되어있기 때문입니다.
 
 ![](./assets/capture/detectFace.png)
+
+화면에 얼굴 인식 사각형까지 그리는 것을 완료하였습니다.

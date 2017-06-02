@@ -7,7 +7,7 @@
 * [Build Structure](chapter4.md)
 * [Show WebCAM stream in Electron](chapter5.md)
 * [Capture WebCAM stream](chapter6.md)
-* [Cognitive with HTTP](chapter7.md)
+* [# Detect Face with Cognitive API](chapter7.md)
 
 # Angular-Electron
 

@@ -96,3 +96,6 @@ video{
 ```
 
 ![](./assets/capture/webcam_reverse.png)
+
+### [이전 게시물 :: Build Structure](chapter4.md)
+### [다음 게시물 :: Capture WebCAM stream](chapter6.md)

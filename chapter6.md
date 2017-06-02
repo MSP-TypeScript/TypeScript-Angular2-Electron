@@ -110,7 +110,7 @@ new Notification('title', {body: 'message'});
 takePhoto = () => {
   const _video = this.video.nativeElement;
   const _canvas = this.canvas.nativeElement;
-  
+
   this.ctx.drawImage(_video, 0, 0, _canvas.width, _canvas.height);
   new Notification('캡쳐 완료', {body: '캡쳐가 완료되었습니다.'});
 }
@@ -119,3 +119,6 @@ takePhoto = () => {
 이제 `btn_photo`를 누를 경우에 아래와 같은 `Notification`이 뜨는 것을 확인할 수 있습니다.
 
 ![](./assets/capture/noti.png)
+
+### [이전 게시물 :: Show WebCAM stream in Electron](chapter5.md)
+### [다음 게시물 :: Detect Face with Cognitive API](chapter7.md)

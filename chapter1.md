@@ -160,3 +160,5 @@ Boilerplate URL: <https://github.com/MSP-typescript/AngularCLI-Electron-Boilerpl
 ```Bash
 $ git clone https://github.com/MSP-typescript/AngularCLI-Electron-Boilerplate Project-Name
 ```
+
+### [다음 게시물 :: Setup Libraries](chapter2.md)

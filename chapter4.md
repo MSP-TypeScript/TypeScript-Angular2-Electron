@@ -88,3 +88,6 @@ export class AppComponent {
 ```
 
 ![](./assets/capture/Interpolation.png)
+
+### [이전 게시물 :: Start Electron](chapter3.md)
+### [다음 게시물 :: Show WebCAM stream in Electron](chapter5.md)

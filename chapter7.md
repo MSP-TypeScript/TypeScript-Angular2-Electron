@@ -4,6 +4,8 @@
 
 > Cognitive API는 <https://azure.microsoft.com/en-us/try/cognitive-services/>에서 KEY를 발급받을 수 있습니다.
 
+> Cognitive API 사용법 <https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236>
+
 ### Service 모듈 만들기
 `Angular2`에서 `HTTP` 통신을 이용하기 위해서는 `Service`를 만들어야합니다.
 

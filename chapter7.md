@@ -4,12 +4,6 @@
 
 > Cognitive API는 <https://azure.microsoft.com/en-us/try/cognitive-services/>에서 KEY를 발급받을 수 있습니다.
 
-
-```typescript
-const faceKey = 'c8a88151c9c84934aef42a17c161eb5f';
-const emotionKey = 'c73ae0c7b3054f2e9578c20630e76ef3';
-```
-
 ### Service 모듈 만들기
 `Angular2`에서 `HTTP` 통신을 이용하기 위해서는 `Service`를 만들어야합니다.
 
